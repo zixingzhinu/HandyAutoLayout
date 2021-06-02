@@ -240,7 +240,7 @@ static void *kUIViewLayoutMethodPropertyRightGap = &kUIViewLayoutMethodPropertyR
     CGPoint viewOrigin = [superView convertPoint:view.ct_origin toView:self.topSuperView];
     CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
     
-    self.ct_y = newOrigin.y - bottom - self.ct_height;
+    self.ct_y = newOrigin.y - bottom - view.ct_height;
 }
 
 - (void)left:(CGFloat)left FromView:(UIView *)view
@@ -249,7 +249,7 @@ static void *kUIViewLayoutMethodPropertyRightGap = &kUIViewLayoutMethodPropertyR
     CGPoint viewOrigin = [superView convertPoint:view.ct_origin toView:self.topSuperView];
     CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
     
-    self.ct_x = newOrigin.x - left - self.ct_width;
+    self.ct_x = newOrigin.x + left + view.ct_width;
 }
 
 - (void)right:(CGFloat)right FromView:(UIView *)view
@@ -258,7 +258,7 @@ static void *kUIViewLayoutMethodPropertyRightGap = &kUIViewLayoutMethodPropertyR
     CGPoint viewOrigin = [superView convertPoint:view.ct_origin toView:self.topSuperView];
     CGPoint newOrigin = [self.topSuperView convertPoint:viewOrigin toView:self.superview];
     
-    self.ct_x = newOrigin.x + right + view.ct_width;
+    self.ct_x = newOrigin.x - right - view.ct_width;
 }
 
 - (void)topRatio:(CGFloat)top FromView:(UIView *)view screenType:(UIScreenType)screenType
